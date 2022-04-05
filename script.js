@@ -2,6 +2,7 @@ var ans = 0;
 var a1 = 0;
 var a2 = 0;
 var op;
+var ops = 0;
 function value(a) {
     if(a2 > 0)
     {
@@ -19,11 +20,24 @@ function value(a) {
     }
 }
 function operation(o) {
-    a1 = ans;
-    ans = 0;
-    a2 = 0;
-    op = o;
-    document.querySelector(".screen").innerHTML = '<p>' +a1+ ' '+o+ '</p>';
+    ops++;
+    if(ops == 1){
+        a1 = ans;
+        ans = 0;
+        a2 = 0;
+        op = o;
+        document.querySelector(".screen").innerHTML = '<p>' +a1+ ' '+o+ '</p>';
+    }
+    else if(ops > 1)
+    {
+        eql();
+        a1 = ans;
+        ans=0;
+        a2=0;
+        op = o;
+        document.querySelector(".screen").innerHTML = '<p>' +a1+ ' '+o+ '</p>';
+    }
+
 }
 function dot() {
     document.querySelector(".screen").innerHTML = '<p>' +ans + "." +'</p>';
@@ -32,22 +46,22 @@ function dot() {
 function eql() {
     if(op == "+")
     {
-        ans = ans +  a1;
+        ans = a1 + ans;
         document.querySelector(".screen").innerHTML = '<p>' +ans+'</p>';
     }
     if(op == "-")
     {
-        ans = ans -  a1;
+        ans = a1 - ans;
         document.querySelector(".screen").innerHTML = '<p>' +ans+'</p>';
     }
     if(op == "*")
     {
-        ans = ans *  a1;
+        ans = a1 * ans;
         document.querySelector(".screen").innerHTML = '<p>' +ans+'</p>';
     }
     if(op == "/")
     {
-        ans = ans /  a1;
+        ans = a1 / ans;
         document.querySelector(".screen").innerHTML = '<p>' +ans+'</p>';
     }
 }
