@@ -65,3 +65,6 @@ function eql() {
         document.querySelector(".screen").innerHTML = '<p>' +ans+'</p>';
     }
 }
+function refresh() {
+    window.location.reload();
+}
