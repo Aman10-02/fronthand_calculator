@@ -55,15 +55,21 @@ section {
 .buttons {
     height: 60%;
     display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     flex-wrap: wrap;
 }
 .buttons div {
     float: left;
     width: calc(25% - 10px);
-    height: 24%;
+    height: 19%;
     background-color: aqua;
     margin: 5px 5px 4px 5px;
     border-radius: 5px;
+}
+.buttons div :hover {
+    background-color: white;
+    color: rgb(6, 6, 130);
 }
 .buttons div a {
     display: flex;
